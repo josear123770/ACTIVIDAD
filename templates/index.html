@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at top left, #17203a, #020612);
+            color: #f5f7fb;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: #76a8ff;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .menu a {
+            display: inline-block;
+            padding: 30px 50px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #76a8ff, #6b86ff);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .menu a:hover {
+            background: linear-gradient(135deg, #ff98b3, #ff7aa1);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .menu a {
+                padding: 20px 30px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Menú Principal</h1>
+        <div class="menu">
+            <a href="{% url 'invetario:lista_equipos' %}">Inventario</a>
+            <a href="{% url 'calificaciones:index' %}">Calificaciones</a>
+            <a href="{% url 'accesibilidad:index' %}">Accesibilidad</a>
+        </div>
+    </div>
+</body>
+</html>
