@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registrar Docente</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #071026;
+    color: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+form {
+    background: #17203a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    width: 350px;
+}
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: none;
+}
+input, select { background: #0a0d14; color: #e6eefc; }
+button { background: #76a8ff; color: #071026; cursor: pointer; }
+button:hover { background: #6b86ff; }
+label { display: block; margin-top: 10px; }
+</style>
+</head>
+<body>
+<form method="POST">
+    <h2>Registrar Docente</h2>
+    <label>Usuario</label>
+    <input type="text" name="user" required>
+    
+    <label>Título</label>
+    <input type="text" name="titulo" required>
+    
+    <label>Teléfono</label>
+    <input type="text" name="telefono" required>
+    
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>

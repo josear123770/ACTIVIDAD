@@ -1,0 +1,11 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Detalle de Matrícula</h1>
+
+<p><strong>Estudiante:</strong> {{ matricula.estudiante.nombre }}</p>
+<p><strong>Clase:</strong> {{ matricula.clase.nombre }}</p>
+<p><strong>Fecha:</strong> {{ matricula.fecha }}</p>
+
+<a href="{% url 'calificaciones:matricula_listar' %}">Volver al listado</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Eliminar Nota</h1>
+<p>¿Seguro que quieres eliminar la nota de "{{ nota.matricula.estudiante.nombre }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+</form>
+
+<a href="{% url 'calificaciones:nota_listar' %}">Cancelar</a>
+{% endblock %}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesibilidad</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at top left, #17203a, #071026, #020612);
+            color: #f5f7fb;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #76a8ff;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .menu a {
+            display: inline-block;
+            padding: 25px 45px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #ff7aa1, #ff98b3);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .menu a:hover {
+            background: linear-gradient(135deg, #6b86ff, #76a8ff);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .back {
+            display: inline-block;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 10px;
+            background: #6b86ff;
+            color: #f5f7fb;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back:hover {
+            background: #76a8ff;
+        }
+
+        @media (max-width: 768px) {
+            .menu a {
+                padding: 18px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Menú de Accesibilidad</h1>
+        <div class="menu">
+            <a href="{% url 'accesibilidad:recurso_listar' %}">Recursos</a>
+            <a href="{% url 'accesibilidad:necesidad_listar' %}">Necesidades</a>
+        </div>
+        <a href="{% url 'index' %}" class="back">Volver al menú principal</a>
+    </div>
+</body>
+</html>

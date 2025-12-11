@@ -1,0 +1,38 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Listado de Notas</h1>
+
+<a href="{% url 'calificaciones:nota_crear' %}">Agregar Nueva Nota</a>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Estudiante</th>
+            <th>Clase</th>
+            <th>Nota</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for nota in notas %}
+        <tr>
+            <td>{{ nota.id }}</td>
+            <td>{{ nota.matricula.estudiante.nombre }}</td>
+            <td>{{ nota.matricula.clase.nombre }}</td>
+            <td>{{ nota.valor }}</td>
+            <td>
+                <a href="{% url 'calificaciones:nota_detalle' nota.id %}">Ver</a> |
+                <a href="{% url 'calificaciones:nota_editar' nota.id %}">Editar</a> |
+                <a href="{% url 'calificaciones:nota_eliminar' nota.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No hay notas registradas</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

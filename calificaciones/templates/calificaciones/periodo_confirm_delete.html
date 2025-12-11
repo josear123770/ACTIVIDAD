@@ -1,0 +1,13 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Eliminar Periodo</h1>
+<p>¿Seguro que quieres eliminar "{{ periodo.nombre }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+</form>
+
+<a href="{% url 'calificaciones:periodo_listar' %}">Cancelar</a>
+{% endblock %}

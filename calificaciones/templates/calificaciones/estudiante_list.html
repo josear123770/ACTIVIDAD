@@ -1,0 +1,38 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Listado de Estudiantes</h1>
+
+<a href="{% url 'calificaciones:estudiante_crear' %}">Agregar Nuevo Estudiante</a>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha Nacimiento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for estudiante in estudiantes %}
+        <tr>
+            <td>{{ estudiante.id }}</td>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.apellido }}</td>
+            <td>{{ estudiante.fecha_nacimiento }}</td>
+            <td>
+                <a href="{% url 'calificaciones:estudiante_detalle' estudiante.id %}">Ver</a> |
+                <a href="{% url 'calificaciones:estudiante_editar' estudiante.id %}">Editar</a> |
+                <a href="{% url 'calificaciones:estudiante_eliminar' estudiante.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No hay estudiantes registrados</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

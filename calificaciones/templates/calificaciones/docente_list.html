@@ -1,0 +1,37 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Listado de Docentes</h1>
+
+<a href="{% url 'calificaciones:docente_crear' %}">Agregar Nuevo Docente</a>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for docente in docentes %}
+        <tr>
+            <td>{{ docente.id }}</td>
+            <td>{{ docente.nombre }}</td>
+            <td>{{ docente.apellido }}</td>
+            <td>
+                <a href="{% url 'calificaciones:docente_detalle' docente.id %}">Ver</a> |
+                <a href="{% url 'calificaciones:docente_editar' docente.id %}">Editar</a> |
+                <a href="{% url 'calificaciones:docente_eliminar' docente.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No hay docentes registrados</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

@@ -1,0 +1,11 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Detalle del Periodo</h1>
+
+<p><strong>Nombre:</strong> {{ periodo.nombre }}</p>
+<p><strong>Fecha Inicio:</strong> {{ periodo.fecha_inicio }}</p>
+<p><strong>Fecha Fin:</strong> {{ periodo.fecha_fin }}</p>
+
+<a href="{% url 'calificaciones:periodo_listar' %}">Volver al listado</a>
+{% endblock %}

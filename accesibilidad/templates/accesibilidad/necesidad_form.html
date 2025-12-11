@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar / Editar Necesidad</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f7fb; color: #17203a; padding: 20px; }
+        h1 { margin-bottom: 20px; }
+        label { display: block; margin-top: 10px; }
+        input[type=text], textarea { width: 100%; padding: 8px; margin-top: 5px; }
+        input[type=checkbox] { margin-left: 0; }
+        button { margin-top: 15px; padding: 10px 20px; background: #ff7aa1; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Editar{% else %}Agregar{% endif %} Necesidad</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
+

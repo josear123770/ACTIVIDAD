@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Necesidades</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #f5f7fb; 
+            color: #17203a; 
+            padding: 20px; 
+        }
+        h1 { margin-bottom: 20px; }
+        a { 
+            text-decoration: none; 
+            color: white; 
+            background: #ff7aa1; 
+            padding: 8px 15px; 
+            border-radius: 5px; 
+            margin-right: 5px;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 15px; 
+        }
+        th, td { 
+            border: 1px solid #ccc; 
+            padding: 10px; 
+            text-align: left; 
+        }
+        th { 
+            background: #17203a; 
+            color: #f5f7fb; 
+        }
+        tr:nth-child(even) { background: #e6eefc; }
+        tr:nth-child(odd) { background: #f5f7fb; }
+    </style>
+</head>
+<body>
+    <h1>Necesidades / Problemas a Solucionar</h1>
+    <a href="{% url 'accesibilidad:necesidad_crear' %}">Agregar Necesidad</a>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Fecha Reportada</th>
+                <th>Solucionada</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for necesidad in object_list %}
+            <tr>
+                <td>{{ necesidad.descripcion }}</td>
+                <td>{{ necesidad.fecha_reportada }}</td>
+                <td>{{ necesidad.solucionada|yesno:"Sí,No" }}</td>
+                <td>
+                    
+                    <a href="{% url 'accesibilidad:necesidad_editar' necesidad.id %}">Editar</a>
+                    <a href="{% url 'accesibilidad:necesidad_eliminar' necesidad.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No hay necesidades registradas</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

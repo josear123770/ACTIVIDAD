@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Recursos</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f7fb; color: #17203a; padding: 20px; }
+        h1 { margin-bottom: 20px; }
+        a { text-decoration: none; color: white; background: #76a8ff; padding: 8px 15px; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background: #17203a; color: #f5f7fb; }
+        tr:nth-child(even) { background: #e6eefc; }
+        tr:nth-child(odd) { background: #f5f7fb; }
+    </style>
+</head>
+<body>
+    <h1>Recursos de Accesibilidad</h1>
+    <a href="{% url 'accesibilidad:recurso_crear' %}">Agregar Recurso</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recurso in object_list %}
+            <tr>
+                <td>{{ recurso.nombre }}</td>
+                <td>{{ recurso.descripcion }}</td>
+                <td>{{ recurso.cantidad }}</td>
+                <td>
+               
+               <a href="{% url 'accesibilidad:recurso_editar' recurso.id %}">Editar</a> |
+               <a href="{% url 'accesibilidad:recurso_eliminar' recurso.id %}">Eliminar</a>
+                 </td>
+
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No hay recursos registrados</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+

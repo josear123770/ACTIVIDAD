@@ -1,0 +1,13 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Eliminar Asignatura</h1>
+<p>¿Seguro que quieres eliminar "{{ asignatura.nombre }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+</form>
+
+<a href="{% url 'calificaciones:asignatura_listar' %}">Cancelar</a>
+{% endblock %}

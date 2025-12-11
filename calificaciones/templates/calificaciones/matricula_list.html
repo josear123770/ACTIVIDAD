@@ -1,0 +1,38 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Listado de Matrículas</h1>
+
+<a href="{% url 'calificaciones:matricula_crear' %}">Agregar Nueva Matrícula</a>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Estudiante</th>
+            <th>Clase</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for matricula in matriculas %}
+        <tr>
+            <td>{{ matricula.id }}</td>
+            <td>{{ matricula.estudiante.nombre }}</td>
+            <td>{{ matricula.clase.nombre }}</td>
+            <td>{{ matricula.fecha }}</td>
+            <td>
+                <a href="{% url 'calificaciones:matricula_detalle' matricula.id %}">Ver</a> |
+                <a href="{% url 'calificaciones:matricula_editar' matricula.id %}">Editar</a> |
+                <a href="{% url 'calificaciones:matricula_eliminar' matricula.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No hay matrículas registradas</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

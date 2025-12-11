@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Recurso</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f7fb; color: #17203a; padding: 20px; }
+        h1 { margin-bottom: 20px; }
+        form { background: #e6eefc; padding: 20px; border-radius: 10px; width: 400px; }
+        label { display: block; margin-top: 10px; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc; }
+        button { margin-top: 15px; padding: 10px 20px; background: #76a8ff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #6b86ff; }
+        a { display: inline-block; margin-top: 15px; text-decoration: none; color: #17203a; }
+    </style>
+</head>
+<body>
+    <h1>Agregar Recurso de Accesibilidad</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'accesibilidad:recurso_listar' %}">Volver a la lista</a>
+</body>
+</html>

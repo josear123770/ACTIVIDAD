@@ -1,0 +1,46 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h2>Registrar Estudiante</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+
+<!-- Aquí puedes dejar los estilos que ya tenías específicos para estudiante -->
+<style>
+/* Ejemplo de tus estilos personalizados para estudiante */
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0; /* tu color de fondo específico */
+    color: #333; /* color de texto */
+}
+form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+button {
+    background: #76a8ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background: #6b86ff;
+}
+</style>
+
+{% endblock %}

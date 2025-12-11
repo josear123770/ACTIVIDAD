@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registrar Matrícula</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f4f8; display: flex; justify-content: center; align-items: center; height: 100vh; }
+form { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 350px; }
+select, input { width: 100%; padding: 8px; margin-bottom: 12px; border-radius: 4px; border: 1px solid #ccc; }
+button { width: 100%; padding: 10px; border: none; background: #ff7aa1; color: white; border-radius: 4px; cursor: pointer; }
+button:hover { background: #ff4c82; }
+h2 { text-align: center; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <h2>Registrar Matrícula</h2>
+    <select name="estudiante" required>
+        <option value="">Seleccione Estudiante</option>
+        {% for e in estudiantes %}
+        <option value="{{ e.id }}">{{ e.user.username }}</option>
+        {% endfor %}
+    </select>
+    <select name="curso" required>
+        <option value="">Seleccione Curso</option>
+        {% for c in cursos %}
+        <option value="{{ c.id }}">{{ c.nombre }} - {{ c.paralelo }}</option>
+        {% endfor %}
+    </select>
+    <select name="periodo" required>
+        <option value="">Seleccione Periodo</option>
+        {% for p in periodos %}
+        <option value="{{ p.id }}">{{ p.nombre }}</option>
+        {% endfor %}
+    </select>
+    <input type="date" name="fecha" required>
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Crear Docente</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit">Guardar</button>
+</form>
+
+<a href="{% url 'calificaciones:docente_listar' %}">Volver al listado</a>
+{% endblock %}

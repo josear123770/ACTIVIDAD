@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Necesidad</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f7fb; color: #17203a; padding: 20px; }
+        h1 { margin-bottom: 20px; }
+        button { padding: 10px 20px; background: #ff5959; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #ff0000; }
+        a { margin-left: 10px; text-decoration: none; color: #17203a; }
+    </style>
+</head>
+<body>
+    <h1>Eliminar Necesidad</h1>
+    <p>¿Deseas eliminar la siguiente necesidad?:</p>
+    <div><strong>Descripción:</strong> {{ object.descripcion }}</div>
+    <div><strong>Solucionada:</strong> {{ object.solucionada|yesno:"Sí,No" }}</div>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar eliminación</button>
+        <a href="{% url 'accesibilidad:necesidad_listar' %}">Cancelar</a>
+    </form>
+</body>
+</html>

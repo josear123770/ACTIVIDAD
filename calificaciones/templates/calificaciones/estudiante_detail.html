@@ -1,0 +1,11 @@
+{% extends 'calificaciones/base.html' %}
+
+{% block content %}
+<h1>Detalle del Estudiante</h1>
+
+<p><strong>Nombre:</strong> {{ estudiante.nombre }}</p>
+<p><strong>Apellido:</strong> {{ estudiante.apellido }}</p>
+<p><strong>Fecha Nacimiento:</strong> {{ estudiante.fecha_nacimiento }}</p>
+
+<a href="{% url 'calificaciones:estudiante_listar' %}">Volver al listado</a>
+{% endblock %}

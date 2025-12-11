@@ -1,0 +1,24 @@
+{% extends "invetario/base.html" %}
+
+{% block titulo %}{{ titulo }}{% endblock %}
+
+{% block contenido %}
+<div class="header">
+    <h2>{{ titulo }}</h2>
+</div>
+
+<div class="form-container">
+    <form method="POST">
+        {% csrf_token %} 
+        
+        {{ form.as_p }}
+        
+        <button type="submit" class="btn btn-primary">
+            Guardar Equipo
+        </button>
+        <a href="{% url 'invetario:lista_equipos' %}" class="btn btn-secondary">
+            Cancelar
+        </a>
+    </form>
+</div>
+{% endblock %}

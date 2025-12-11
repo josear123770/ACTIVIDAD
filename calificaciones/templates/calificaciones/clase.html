@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registrar Clase</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f4f8; display: flex; justify-content: center; align-items: center; height: 100vh; }
+form { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 350px; }
+select { width: 100%; padding: 8px; margin-bottom: 12px; border-radius: 4px; border: 1px solid #ccc; }
+button { width: 100%; padding: 10px; border: none; background: #6b86ff; color: white; border-radius: 4px; cursor: pointer; }
+button:hover { background: #5470d0; }
+h2 { text-align: center; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <h2>Registrar Clase</h2>
+    <select name="docente" required>
+        <option value="">Seleccione Docente</option>
+        {% for d in docentes %}
+        <option value="{{ d.id }}">{{ d.user.username }} - {{ d.titulo }}</option>
+        {% endfor %}
+    </select>
+    <select name="asignatura" required>
+        <option value="">Seleccione Asignatura</option>
+        {% for a in asignaturas %}
+        <option value="{{ a.id }}">{{ a.nombre }}</option>
+        {% endfor %}
+    </select>
+    <select name="curso" required>
+        <option value="">Seleccione Curso</option>
+        {% for c in cursos %}
+        <option value="{{ c.id }}">{{ c.nombre }} - {{ c.paralelo }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>
